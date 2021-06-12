@@ -27,9 +27,10 @@ As a chef, you need to master precise cutting techniques. You have to be careful
 Classes and methods definition. Or functions.
 
 ## main.js
-- buildSplashScreen () {}
-- buildGameScreen () {}
-- buildGameOverScreen () {}
+- initializeCanvas()
+- buildSplashScreen() //
+- buildGameScreen() //
+- buildGameOverScreen() //
 
 ## game.js
 - Game()
