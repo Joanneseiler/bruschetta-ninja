@@ -33,7 +33,7 @@ Classes and methods definition. Or functions.
 - buildGameOverScreen() //
 
 ## game.js
-- Game()
+- Game
 - start()
 - spawnIngredient()
 - spawnChicken()
@@ -45,20 +45,20 @@ Classes and methods definition. Or functions.
 - gameOver()
 
 ## ingredient.js
-- Indredient() {this.x, this.y}
+- Indredient {this.x, this.y}
 - draw()
 - move()
 - hit()
 
 ## slice.js
-- Slice() {this.x, thix.y}
+- Slice {this.x, thix.y}
 - addPoint()
 - draw()
 - move()
 - checkCollision()
 
 ## chicken.js
-- Chicken() {this.x, this.y}
+- Chicken {this.x, this.y}
 - draw()
 - move()
 - hit()
