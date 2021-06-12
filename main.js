@@ -20,7 +20,6 @@ function initializeCanvas() {
     canvas.style.backgroundColor = "#FBF6C4"  
 }
 
-
 function hideAllScreens(){
     startPage.classList.add("hidden")
     gamePage.classList.add("hidden")
@@ -41,6 +40,8 @@ function initializeStartButton(){
     let startButton = document.getElementById("start-button")
     startButton.addEventListener("click", () => {
         switchToGameScreen()
+        let game = new Game(canvas, context);
+        game.start()
     })
 }
 
