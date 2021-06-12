@@ -1,3 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
 .hidden {
     display: none;
+}
+
+#start-page {
+    font-family: 'Roboto', sans-serif;
+    padding: 50px 200px;
+    color: white;
+    background-image: url("images/vecteezy_a-wooden-cutting-board-isolated_2046969/ya4v_yf59_210113_ss4mp_generated.jpg");
+    background-size: cover;
+    text-align: center;
+}
+
+.centered-flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: #0C0545;
+    font-weight: bold;
+}
+
+.circle {
+    margin: 32px;
+    justify-content: center;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: #FFED77;
+}
+
+p, h3, h4 {
+    font-size: 20px;
+}
+
+
+#start-button {
+    background-color: #62B8CD;
+    color: white;
+    padding: 15px;
+    margin: 30px;
+    border-radius: 10px;
+    font-size: 24px;
 }
