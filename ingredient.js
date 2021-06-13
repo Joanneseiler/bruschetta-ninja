@@ -8,4 +8,9 @@ class Ingredient{
     move() {
         this.y += 1
     }
+    wasHit(x, y) {
+        let withinX = x >= this.x && x <= this.x + this.size
+        let withinY = y >= this.y && y <= this.y + this.size
+        return withinX && withinY  
+    }
 }

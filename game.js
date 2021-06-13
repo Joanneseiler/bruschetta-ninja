@@ -13,6 +13,7 @@ class Game {
         setInterval(() => {
             this.spawnIngredient()
         }, 2000)
+        this.defineIngredientClickBehavior()
         this.updateGame()
     }
     spawnIngredient(){
@@ -34,8 +35,20 @@ class Game {
             context.drawImage(ingredient.image, ingredient.x, ingredient.y, ingredient.size, ingredient.size)
             ingredient.move()
         })
+        context.fillStyle = "#0C0545"
+        context.font = "18px Courier"
+        context.textBaseline = "top"
+        context.fillText(`Score: ${this.score}`, 24, 24)
         requestAnimationFrame(() => this.updateGame())
     }
+    defineIngredientClickBehavior(){
+        this.canvas.addEventListener("click", (event) => {
+            this.ingredients = this.ingredients.filter((ingredient) => {
+                if (ingredient.wasHit(event.offsetX, event.offsetY)) {
+                    this.score +=10
+                }
+                return !ingredient.wasHit(event.offsetX, event.offsetY)
+            })
+        })
+    }
 }
-
-
