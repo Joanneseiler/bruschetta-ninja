@@ -4,9 +4,8 @@ let startPage, gamePage, scorePage;
 window.addEventListener("load", () => {
     initializePages()
     initializeCanvas()
-    initializeStartButton()
-    //initializeStartButton(startButton)
-    //initializeStartButton(restartButton)
+    initializeStartButton("start-button")
+    initializeStartButton("restart-button")
     switchToSplashScreen()
 })
 
@@ -18,8 +17,7 @@ function initializePages() {
 
 function initializeCanvas() {
     canvas = document.getElementById("gameCanvas");
-    context = canvas.getContext("2d"); 
-    canvas.style.backgroundColor = "#FBF6C4"  
+    context = canvas.getContext("2d");
 }
 
 function hideAllScreens(){
@@ -44,9 +42,9 @@ function switchToScoreSreen(score){
     document.getElementById("score").innerText = score;
 }
 
-function initializeStartButton(){
-    let startButton = document.getElementById("start-button")
-    startButton.addEventListener("click", () => {
+function initializeStartButton(buttonId){
+    let button = document.getElementById(buttonId)
+    button.addEventListener("click", () => {
         switchToGameScreen()
         let game = new Game(canvas, context, switchToScoreSreen);
         game.start()

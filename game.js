@@ -42,7 +42,7 @@ class Game {
             }
         })
 
-        context.fillStyle = "#0C0545"
+        context.fillStyle = "white"
         context.font = "18px Courier"
         context.textBaseline = "top"
         context.fillText(`Score: ${this.score}`, 24, 24)
