@@ -27,30 +27,35 @@ As a chef, you need to master precise cutting techniques. You have to be careful
 Classes and methods definition. Or functions.
 
 ## main.js
+- window.addEventListener("load", () => {})
+- initializePages()
 - initializeCanvas()
-- buildSplashScreen() //
-- buildGameScreen() //
-- buildGameOverScreen() //
+- hideAllScreens()
+- switchToSplashScreen()
+- switchToGameScreen()
+- switchToScoreSreen(score)
+- initializeStartButton()
 
 ## game.js
 - Game
+- constructor(canvas, context, whenGameOver)
 - start()
 - spawnIngredient()
+- updateGame()
+- defineIngredientClickBehavior()
+- endGame()
+
+This still needs to be done:
 - spawnChicken()
-- checkCollision(x, y)
-- initCanvas()
-- drawCanvas()
-- updateCanvas()
-- clearCanvas()
-- gameOver()
 
 ## ingredient.js
-- Indredient {this.x, this.y}
-- draw()
+- Indredient
+- constructor(image, x, y, size)
 - move()
-- hit()
+- wasHit(x, y)
 
 ## slice.js
+This still needs to be done:
 - Slice {this.x, thix.y}
 - addPoint()
 - draw()
@@ -58,7 +63,10 @@ Classes and methods definition. Or functions.
 - checkCollision()
 
 ## chicken.js
-- Chicken {this.x, this.y}
+- Chicken
+- constructor(image, x, y)
+
+This still needs to be done:
 - draw()
 - move()
 - hit()

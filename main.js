@@ -5,6 +5,8 @@ window.addEventListener("load", () => {
     initializePages()
     initializeCanvas()
     initializeStartButton()
+    //initializeStartButton(startButton)
+    //initializeStartButton(restartButton)
     switchToSplashScreen()
 })
 
@@ -36,11 +38,17 @@ function switchToGameScreen(){
     gamePage.classList.remove("hidden")
 }
 
+function switchToScoreSreen(score){
+    hideAllScreens()
+    scorePage.classList.remove("hidden")
+    document.getElementById("score").innerText = score;
+}
+
 function initializeStartButton(){
     let startButton = document.getElementById("start-button")
     startButton.addEventListener("click", () => {
         switchToGameScreen()
-        let game = new Game(canvas, context);
+        let game = new Game(canvas, context, switchToScoreSreen);
         game.start()
     })
 }
