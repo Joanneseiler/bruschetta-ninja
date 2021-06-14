@@ -1,12 +1,13 @@
 class Chicken{
-    constructor(image, x, y, size){
+    constructor(image, x, y, size, speed){
         this.image = image;
         this.x = x;
         this.y = y;
         this.size = size;
+        this.speed = speed;
     }
     move() {
-        this.y += 3
+        this.y += this.speed;
     }
     wasHit(x, y){
         let withinX = x >= this.x && x <= this.x + this.size

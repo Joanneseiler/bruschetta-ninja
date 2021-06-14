@@ -13,8 +13,12 @@ class Game {
     start(){
         this.spawnIntervalId = setInterval(() => {
             this.spawnIngredient()
-            this.spawnChicken()
         }, 2000)
+
+        this.spawnIntervalId = setInterval(() => {
+            this.spawnChicken()
+        }, 4000)
+
         this.defineClickBehavior()
         this.updateGame()
     }
@@ -28,7 +32,7 @@ class Game {
             tomatoImage,
             Math.random() * (canvas.width - tomatoImage.width),
             -tomatoImage.height,
-            tomatoImage.width
+            tomatoImage.width, (Math.random() * 2) + 2
         );
         
         let onionImage = new Image();
@@ -40,7 +44,7 @@ class Game {
             onionImage,
             Math.random() * (canvas.width - onionImage.width),
             - onionImage.height,
-            onionImage.width
+            onionImage.width, (Math.random() * 2) + 2
         )
 
         let breadImage = new Image();
@@ -52,10 +56,18 @@ class Game {
             breadImage,
             Math.random() * (canvas.width - breadImage.width),
             - breadImage.height,
-            breadImage.width
+            breadImage.width, (Math.random() * 2) + 2
         )
         
-        this.ingredients.push(tomato, onion, bread)
+        //this.ingredients.push(tomato, onion, bread)
+
+        let possibleIngredients = [tomato, onion, bread]
+        let randomAmount = Math.round((Math.random() * 3) + 1)
+        for (let i = 0; i < randomAmount; i++) {
+            let randomIndex = Math.floor(Math.random() * possibleIngredients.length)
+            this.ingredients.push(possibleIngredients[randomIndex])
+        }
+
     }
     spawnChicken(){
         let chickenImage = new Image();
@@ -65,7 +77,7 @@ class Game {
             chickenImage,
             Math.random() * (canvas.width - chickenImage.naturalWidth),
             -chickenImage.height,
-            chickenImage.width
+            chickenImage.width, (Math.random() * 2) + 2
         );
 
         this.chickens.push(chicken)
