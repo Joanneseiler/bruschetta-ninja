@@ -19,19 +19,47 @@ class Game {
         this.updateGame()
     }
     spawnIngredient(){
-        let ingredientImage = new Image();
-        ingredientImage.src = "./images/tomato.png"
-        ingredientImage.width = 64;
-        ingredientImage.height = 64;
+        // Tomate:
+        let tomatoImage = new Image();
+        tomatoImage.src = "./images/tomato.png";
+        tomatoImage.width = 64;
+        tomatoImage.height = 64;
         
-        let ingredient = new Ingredient(
-            ingredientImage, 
-            Math.random() * (canvas.width - ingredientImage.width), 
-            -ingredientImage.height, 
-            ingredientImage.width
+        let tomato = new Ingredient(
+            tomatoImage,
+            Math.random() * (canvas.width - tomatoImage.width),
+            -tomatoImage.height,
+            tomatoImage.width
         );
+        
+        // Zwiebel:
+        let onionImage = new Image();
+        onionImage.src = "./images/onion.png";
+        onionImage.width = 64;
+        onionImage.height = 64;
 
-        this.ingredients.push(ingredient)
+        let onion = new Ingredient(
+            onionImage,
+            Math.random() * (canvas.width - onionImage.width),
+            - onionImage.height,
+            onionImage.width
+        )
+
+        // Brot:
+        let breadImage = new Image();
+        breadImage.src = "./images/bread.png";
+        breadImage.width = 64;
+        breadImage.height = 64;
+        
+        let bread = new Ingredient(
+            breadImage,
+            Math.random() * (canvas.width - breadImage.width),
+            - breadImage.height,
+            breadImage.width
+        )
+        
+        // Alle Zutaten in das Zutaten-Array pushen:
+        this.ingredients.push(tomato, onion, bread)
     }
     spawnChicken(){
         let chickenImage = new Image();
