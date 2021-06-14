@@ -14,12 +14,14 @@
             <img src="./images/ninja.png">
             <h1>Bruschetta Ninja</h1>
         </div>
-        <div id="instructions" class="half-transparent rounded centered-flex">
+        <div id="instructions" class="half-transparent rounded centered-flex small-container">
+            <img id="splash1" src="./images/splash.png">
+            <img id="spot" src="./images/spot.png">
             <h2>Instructions:</h2>
             <h3>Let’s improve our cutting skills in the kitchen!</h3>
             <p>You will prepare some ingredients for bruschetta. 
                 All you have to do is to slice the ingredients 
-                of this meal: tomatoes, onions, bread. 
+                of this meal: tomatoes, onions and bread. 
                 But please, don't let them hit the ground.</p>
             <p>Be careful!</p>
             <p>From time to time a chicken comes along, 
@@ -28,7 +30,8 @@
                 It wants to stay in one piece. Make sure you don't catch it.</p>
             <p>At the end, the score will show how you master precise cutting techniques. Have fun!</p>
         </div>
-        <div>
+        <div id="button">
+            <img id="splash2" src="./images/splash.png">
             <button id="start-button">Let's start</button>
         </div>
     </section>
@@ -39,10 +42,10 @@
     </section>
 
     <!--Score Page-->
-    <section id="score-page">
-        <div class="half-transparent rounded centered-flex">
+    <section class="centered-flex" id="score-page">
+        <div class="half-transparent rounded centered-flex small-container">
             <p>I bet that wasn't the first time you cooked!</p>
-            <p>Your score is <span id="score"></span></p>
+            <p>Your score is <span id="score"></span>.</p>
             <p>Play again to become a real pro in the kitchen:</p>
         </div>
         <button id="restart-button">Restart</button>

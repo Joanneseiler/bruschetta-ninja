@@ -19,7 +19,6 @@ class Game {
         this.updateGame()
     }
     spawnIngredient(){
-        // Tomate:
         let tomatoImage = new Image();
         tomatoImage.src = "./images/tomato.png";
         tomatoImage.width = 64;
@@ -32,7 +31,6 @@ class Game {
             tomatoImage.width
         );
         
-        // Zwiebel:
         let onionImage = new Image();
         onionImage.src = "./images/onion.png";
         onionImage.width = 64;
@@ -45,11 +43,10 @@ class Game {
             onionImage.width
         )
 
-        // Brot:
         let breadImage = new Image();
         breadImage.src = "./images/bread.png";
-        breadImage.width = 64;
-        breadImage.height = 64;
+        breadImage.width = 80;
+        breadImage.height = 80;
         
         let bread = new Ingredient(
             breadImage,
@@ -58,7 +55,6 @@ class Game {
             breadImage.width
         )
         
-        // Alle Zutaten in das Zutaten-Array pushen:
         this.ingredients.push(tomato, onion, bread)
     }
     spawnChicken(){
@@ -108,9 +104,9 @@ class Game {
         this.updateGameIntervalId = requestAnimationFrame(() => this.updateGame())
     }
     defineClickBehavior(){
-        this.canvas.addEventListener("click", (event) => {
+        this.canvas.addEventListener("mousemove", (event) => {
             let wereIngredientsHit = false;
-
+            
             this.ingredients = this.ingredients.filter((ingredient) => {
                 let wasIngredientHit = ingredient.wasHit(event.offsetX, event.offsetY)
                 if (wasIngredientHit) {
