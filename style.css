@@ -81,7 +81,7 @@ p {
     border-radius: 24px;
 }
 
-#start-button {
+button {
     background-color: #BA4A52;
     border: 2px solid white;
     color: white;
@@ -91,7 +91,7 @@ p {
     font-size: 24px;
 }
 
-#start-button:hover {
+button:hover {
     cursor: pointer;
     color: #0C0545;
     border: 2px solid #0C0545;

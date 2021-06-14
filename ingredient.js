@@ -6,7 +6,7 @@ class Ingredient{
         this.size = size;
     }
     move() {
-        this.y += 1
+        this.y += 2
     }
     wasHit(x, y) {
         let withinX = x >= this.x && x <= this.x + this.size

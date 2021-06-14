@@ -44,8 +44,6 @@ Classes and methods definition. Or functions.
 - updateGame()
 - defineIngredientClickBehavior()
 - endGame()
-
-This still needs to be done:
 - spawnChicken()
 
 ## ingredient.js
@@ -65,11 +63,8 @@ This still needs to be done:
 ## chicken.js
 - Chicken
 - constructor(image, x, y)
-
-This still needs to be done:
-- draw()
 - move()
-- hit()
+- wasHit()
 
 ## States and state transitions
 Definition of the different states and their transition (transition functions)

@@ -13,6 +13,7 @@ class Game {
     start(){
         this.spawnIntervalId = setInterval(() => {
             this.spawnIngredient()
+            this.spawnChicken()
         }, 2000)
         this.defineIngredientClickBehavior()
         this.updateGame()
@@ -32,8 +33,29 @@ class Game {
 
         this.ingredients.push(ingredient)
     }
+    spawnChicken(){
+        let chickenImage = new Image();
+        chickenImage.src = "./images/chicken.png"
+
+        let chicken = new Chicken(
+            chickenImage,
+            Math.random() * (canvas.width - chickenImage.width),
+            -chickenImage.height
+        );
+
+        this.chickens.push(chicken)
+    }
     updateGame(){
+        // clear Canvas:
         context.clearRect(0, 0, canvas.width, canvas.height)
+
+        // Huhn ins Bild reinfallen lassen:
+        this.chickens.forEach((chicken) => {
+            context.drawImage(chicken.image, chicken.x, chicken.y)
+            chicken.move()
+        })
+
+        // Zutaten malen, ins Bild reinfallen lassen und wann Spiel vorbei:
         this.ingredients.forEach((ingredient) => {
             context.drawImage(ingredient.image, ingredient.x, ingredient.y, ingredient.size, ingredient.size)
             ingredient.move()
@@ -42,16 +64,18 @@ class Game {
             }
         })
 
+        // Score:
         context.fillStyle = "white"
         context.font = "18px Courier"
         context.textBaseline = "top"
         context.fillText(`Score: ${this.score}`, 24, 24)
 
+        // GameOver:
         if (this.gameOver === true) {
             this.endGame()
             return;
         }
-
+        // 60 Mal pro Sekunde:
         this.updateGameIntervalId = requestAnimationFrame(() => this.updateGame())
     }
     defineIngredientClickBehavior(){

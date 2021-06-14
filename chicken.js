@@ -4,4 +4,12 @@ class Chicken{
         this.x = x;
         this.y = y;
     }
+    move() {
+        this.y += 1
+    }
+    wasHit(x, y){
+        let withinX = x >= this.x && x <= this.x + this.width
+        let withinY = y >= this.y && y <= this.y + this.height
+        return withinX && withinY
+    }
 }
