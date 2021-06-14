@@ -42,7 +42,7 @@ Classes and methods definition. Or functions.
 - start()
 - spawnIngredient()
 - updateGame()
-- defineIngredientClickBehavior()
+- defineClickBehavior()
 - endGame()
 - spawnChicken()
 

@@ -15,7 +15,7 @@ class Game {
             this.spawnIngredient()
             this.spawnChicken()
         }, 2000)
-        this.defineIngredientClickBehavior()
+        this.defineClickBehavior()
         this.updateGame()
     }
     spawnIngredient(){
@@ -36,11 +36,12 @@ class Game {
     spawnChicken(){
         let chickenImage = new Image();
         chickenImage.src = "./images/chicken.png"
-
+        
         let chicken = new Chicken(
             chickenImage,
-            Math.random() * (canvas.width - chickenImage.width),
-            -chickenImage.height
+            Math.random() * (canvas.width - chickenImage.naturalWidth),
+            -chickenImage.height,
+            chickenImage.width
         );
 
         this.chickens.push(chicken)
@@ -78,13 +79,27 @@ class Game {
         // 60 Mal pro Sekunde:
         this.updateGameIntervalId = requestAnimationFrame(() => this.updateGame())
     }
-    defineIngredientClickBehavior(){
+    defineClickBehavior(){
         this.canvas.addEventListener("click", (event) => {
+            let wereIngredientsHit = false;
+
             this.ingredients = this.ingredients.filter((ingredient) => {
-                if (ingredient.wasHit(event.offsetX, event.offsetY)) {
+                let wasIngredientHit = ingredient.wasHit(event.offsetX, event.offsetY)
+                if (wasIngredientHit) {
                     this.score +=10
+                    wereIngredientsHit = true
                 }
-                return !ingredient.wasHit(event.offsetX, event.offsetY)
+                return !wasIngredientHit
+            })
+
+            if (wereIngredientsHit === true){
+                return
+            }
+
+            this.chickens.forEach((chicken) => {
+                if (chicken.wasHit(event.offsetX, event.offsetY)){
+                    this.gameOver = true;
+                }
             })
         })
     }
