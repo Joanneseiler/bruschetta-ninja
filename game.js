@@ -6,20 +6,25 @@ class Game {
         this.gameOver = false;
         this.canvas = canvas;
         this.context = context;
-        this.spawnIntervalId = null;
+        this.intervalIds = [];
         this.updateGameIntervalId = null;
         this.whenGameOver = whenGameOver;
+        this.slicePoints = [];
     }
     start(){
-        this.spawnIntervalId = setInterval(() => {
+        this.intervalIds.push(setInterval(() => {
             this.spawnIngredient()
-        }, 2000)
+        }, 2000))
 
-        this.spawnIntervalId = setInterval(() => {
+        this.intervalIds.push(setInterval(() => {
             this.spawnChicken()
-        }, 4000)
+        }, 4000))
 
-        this.defineClickBehavior()
+        this.intervalIds.push(setInterval(() => {
+            this.slicePoints.shift()
+        }, 50))
+
+        this.defineMouseMoveBehavior()
         this.updateGame()
     }
     spawnIngredient(){
@@ -107,6 +112,8 @@ class Game {
         context.textBaseline = "top"
         context.fillText(`Score: ${this.score}`, 24, 24)
 
+        this.drawSlice()
+
         // GameOver:
         if (this.gameOver === true) {
             this.endGame()
@@ -115,8 +122,13 @@ class Game {
         // 60 Mal pro Sekunde:
         this.updateGameIntervalId = requestAnimationFrame(() => this.updateGame())
     }
-    defineClickBehavior(){
+    defineMouseMoveBehavior(){
         this.canvas.addEventListener("mousemove", (event) => {
+            this.slicePoints.push({x: event.offsetX, y: event.offsetY})
+            if (this.slicePoints.length > 4) {
+                this.slicePoints.shift()
+            }
+        
             let wereIngredientsHit = false;
             
             this.ingredients = this.ingredients.filter((ingredient) => {
@@ -139,8 +151,30 @@ class Game {
             })
         })
     }
+    drawSlice() {
+        if (this.slicePoints.length < 2) {
+            return;
+        }
+
+        this.context.beginPath();
+        this.context.strokeStyle = "white";
+        this.context.lineWidth = 2;
+
+        this.context.moveTo(this.slicePoints[0].x, this.slicePoints[0].y)
+        this.slicePoints.forEach((currentPoint, index) => {
+            if (index === 0) {
+                return;
+            }
+            this.context.lineTo(currentPoint.x, currentPoint.y);
+        })
+
+        this.context.stroke();
+        this.context.closePath();
+    }
     endGame(){
-        clearInterval(this.spawnIntervalId)
+        this.intervalIds.forEach((intervalId) => {
+            clearInterval(intervalId)
+        })
         cancelAnimationFrame(this.updateGameIntervalId)
         this.whenGameOver(this.score)
     }
