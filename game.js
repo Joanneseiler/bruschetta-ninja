@@ -63,8 +63,6 @@ class Game {
             - breadImage.height,
             breadImage.width, (Math.random() * 2) + 2
         )
-        
-        //this.ingredients.push(tomato, onion, bread)
 
         let possibleIngredients = [tomato, onion, bread]
         let randomAmount = Math.round((Math.random() * 3) + 1)
@@ -88,16 +86,27 @@ class Game {
         this.chickens.push(chicken)
     }
     updateGame(){
-        // clear Canvas:
         context.clearRect(0, 0, canvas.width, canvas.height)
 
-        // Huhn ins Bild reinfallen lassen:
+        this.updateChickens()
+        this.updateIngredients()
+        this.updateScore()
+        this.drawSlice()
+
+        if (this.gameOver === true) {
+            this.endGame()
+            return;
+        }
+        
+        this.updateGameIntervalId = requestAnimationFrame(() => this.updateGame())
+    }
+    updateChickens() {
         this.chickens.forEach((chicken) => {
             context.drawImage(chicken.image, chicken.x, chicken.y)
             chicken.move()
         })
-
-        // Zutaten malen, ins Bild reinfallen lassen und wann Spiel vorbei:
+    }
+    updateIngredients() {
         this.ingredients.forEach((ingredient) => {
             context.drawImage(ingredient.image, ingredient.x, ingredient.y, ingredient.size, ingredient.size)
             ingredient.move()
@@ -105,22 +114,12 @@ class Game {
                 this.gameOver = true;
             }
         })
-
-        // Score:
+    }
+    updateScore() {
         context.fillStyle = "white"
         context.font = "18px Courier"
         context.textBaseline = "top"
         context.fillText(`Score: ${this.score}`, 24, 24)
-
-        this.drawSlice()
-
-        // GameOver:
-        if (this.gameOver === true) {
-            this.endGame()
-            return;
-        }
-        // 60 Mal pro Sekunde:
-        this.updateGameIntervalId = requestAnimationFrame(() => this.updateGame())
     }
     defineMouseMoveBehavior(){
         this.canvas.addEventListener("mousemove", (event) => {
