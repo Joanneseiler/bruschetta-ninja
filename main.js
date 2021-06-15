@@ -50,5 +50,3 @@ function initializeStartButton(buttonId){
         game.start()
     })
 }
-
-
