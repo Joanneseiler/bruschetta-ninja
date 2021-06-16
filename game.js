@@ -18,7 +18,7 @@ class Game {
 
         this.intervalIds.push(setInterval(() => {
             this.spawnChicken()
-        }, 4000))
+        }, 2000))
 
         this.intervalIds.push(setInterval(() => {
             this.slicePoints.shift()
@@ -28,49 +28,40 @@ class Game {
         this.updateGame()
     }
     spawnIngredient(){
-        let tomatoImage = new Image();
-        tomatoImage.src = "./images/tomato.png";
-        tomatoImage.width = 64;
-        tomatoImage.height = 64;
-        
-        let tomato = new Ingredient(
-            tomatoImage,
-            Math.random() * (canvas.width - tomatoImage.width),
-            -tomatoImage.height,
-            tomatoImage.width, (Math.random() * 2) + 2
-        );
-        
-        let onionImage = new Image();
-        onionImage.src = "./images/onion.png";
-        onionImage.width = 64;
-        onionImage.height = 64;
-
-        let onion = new Ingredient(
-            onionImage,
-            Math.random() * (canvas.width - onionImage.width),
-            - onionImage.height,
-            onionImage.width, (Math.random() * 2) + 2
-        )
-
-        let breadImage = new Image();
-        breadImage.src = "./images/bread.png";
-        breadImage.width = 80;
-        breadImage.height = 80;
-        
-        let bread = new Ingredient(
-            breadImage,
-            Math.random() * (canvas.width - breadImage.width),
-            - breadImage.height,
-            breadImage.width, (Math.random() * 2) + 2
-        )
-
-        let possibleIngredients = [tomato, onion, bread]
         let randomAmount = Math.round((Math.random() * 3) + 1)
         for (let i = 0; i < randomAmount; i++) {
-            let randomIndex = Math.floor(Math.random() * possibleIngredients.length)
-            this.ingredients.push(possibleIngredients[randomIndex])
+            this.ingredients.push(this.getRandomIngredient())
         }
+    }
+    getRandomIngredient() {
+        let possibleIngredients = [
+            {image: "./images/tomato.png", size: 64},
+            {image: "./images/onion.png", size: 64},
+            {image: "./images/bread.png", size: 80},
+        ]
 
+        let randomIndex = Math.floor(Math.random() * possibleIngredients.length)
+        let ingredient = possibleIngredients[randomIndex]
+
+        let image = new Image()
+        image.src = ingredient.image
+        image.width = ingredient.size
+        image.height = ingredient.size
+
+        let xCenter = (canvas.width / 2) - (image.width / 2)
+        let xShift = (Math.random() * 300) - 150
+        let y = canvas.height + image.height
+        let speedX = (Math.random() * 4) - 2
+        let speedY = -((Math.random() * 4) + 12)
+
+        return new Ingredient(
+            image,
+            xCenter + xShift,
+            y,
+            ingredient.size, 
+            speedX,
+            speedY
+        )
     }
     spawnChicken(){
         let chickenImage = new Image();
@@ -97,7 +88,7 @@ class Game {
             this.endGame()
             return;
         }
-        
+
         this.updateGameIntervalId = requestAnimationFrame(() => this.updateGame())
     }
     updateChickens() {
@@ -110,7 +101,8 @@ class Game {
         this.ingredients.forEach((ingredient) => {
             context.drawImage(ingredient.image, ingredient.x, ingredient.y, ingredient.size, ingredient.size)
             ingredient.move()
-            if (ingredient.y >= this.canvas.height - ingredient.size) {
+            ingredient.increaseSpeedY(0.2)
+            if (ingredient.y > this.canvas.height + ingredient.size) {
                 this.gameOver = true;
             }
         })
