@@ -76,13 +76,6 @@ h1 {
     height: 120px;
 }
 
-#bruschetta {
-    position: absolute;
-    right: -440px;
-    top: -65px;
-    opacity: 0.8;
-}
-
 h2 {
     margin-top: 0;
     font-size: 24px;
@@ -147,9 +140,26 @@ button:hover {
 
 #spot2 {
     position: absolute;
-    right: 100px;
+    right: 120px;
     transform: rotate(50deg);
     opacity: 0.7;
+}
+
+#splash3 {
+    position: absolute;
+    opacity: 0.5;
+    left: 140px;
+    top: 220px;
+    transform: rotate(30deg);
+    width: 100px;
+    height: 100px;
+}
+
+#splash4 {
+    position: absolute;
+    opacity: 0.4;
+    right: 320px;
+    bottom: 100px;
 }
 
 #score-page {
@@ -159,6 +169,13 @@ button:hover {
 #footer-styles {
     position: relative;
 }
+
+
+#score-page p {
+    font-size: 20px;
+    padding: 20px 0 20px 0;
+}
+
 
 #chicken {
     position: absolute;

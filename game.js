@@ -10,8 +10,12 @@ class Game {
         this.updateGameIntervalId = null;
         this.whenGameOver = whenGameOver;
         this.slicePoints = [];
+        this.gameAudio = new Audio("sounds/FASTER2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3")
+        this.gameAudio.volume = 0.2
     }
     start(){
+        this.gameAudio.play()
+
         this.intervalIds.push(setInterval(() => {
             this.spawnIngredient()
         }, 2000))
@@ -168,5 +172,6 @@ class Game {
         })
         cancelAnimationFrame(this.updateGameIntervalId)
         this.whenGameOver(this.score)
+        this.gameAudio.pause()
     }
 }

@@ -1,5 +1,7 @@
 let canvas, context;
-let startPage, gamePage, scorePage; 
+let startPage, gamePage, scorePage;
+let scoreAudio = new Audio("sounds/8-bit-rpg-music-the-heroines-theme-original-composition.mp3")
+scoreAudio.volume = 0.1
 
 window.addEventListener("load", () => {
     initializePages()
@@ -40,6 +42,7 @@ function switchToScoreSreen(score){
     hideAllScreens()
     scorePage.classList.remove("hidden")
     document.getElementById("score").innerText = score;
+    scoreAudio.play()
 }
 
 function initializeStartButton(buttonId){
@@ -48,5 +51,6 @@ function initializeStartButton(buttonId){
         switchToGameScreen()
         let game = new Game(canvas, context, switchToScoreSreen);
         game.start()
+        scoreAudio.pause()
     })
 }
