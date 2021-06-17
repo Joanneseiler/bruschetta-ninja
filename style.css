@@ -162,6 +162,11 @@ button:hover {
     bottom: 100px;
 }
 
+#game-canvas {
+    cursor: url("./images/french-knife-rotate.png"), auto;
+}
+
+
 #score-page {
     justify-content: center;
 }
@@ -182,3 +187,4 @@ button:hover {
     top: -100px;
     left: -480px;
 }
+

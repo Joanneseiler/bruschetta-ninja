@@ -18,7 +18,7 @@ function initializePages() {
 }
 
 function initializeCanvas() {
-    canvas = document.getElementById("gameCanvas");
+    canvas = document.getElementById("game-canvas");
     context = canvas.getContext("2d");
 }
 
