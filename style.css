@@ -181,6 +181,33 @@ button:hover {
     padding: 20px 0 20px 0;
 }
 
+#spot3 {
+    position: absolute;
+    transform: rotate(80deg);
+    opacity: 0.7;
+    right: 270px;
+    bottom: 0px;
+    width: 70px;
+    height: 70px;
+}
+
+#splash5 {
+    position: absolute;
+    top: 220px;
+    left: 220px;
+    opacity: 0.6;
+    transform: rotate(30deg);
+    width: 90px;
+    height: 90px;
+}
+
+#bruschetta {
+    position: absolute;
+    width: 333px;
+    height: 212px;
+    right: 60px;
+    top: 60px;
+}
 
 #chicken {
     position: absolute;

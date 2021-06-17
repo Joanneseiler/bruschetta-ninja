@@ -10,9 +10,12 @@ class Game {
         this.updateGameIntervalId = null;
         this.whenGameOver = whenGameOver;
         this.slicePoints = [];
-        this.gameAudio = new Audio("sounds/FASTER2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3")
-        this.gameAudio.volume = 0.2
+        this.gameAudio = new Audio("sounds/FASTER2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3");
+        this.gameAudio.volume = 0.2;
+        this.sliceAudio = new Audio("sounds/cartoon_whip_swipe_chop.mp3");
+        this.sliceAudio.volume = 0.3;
     }
+        
     start(){
         this.gameAudio.play()
 
@@ -130,6 +133,7 @@ class Game {
                 let wasIngredientHit = ingredient.wasHit(event.offsetX, event.offsetY)
                 if (wasIngredientHit) {
                     this.score +=10
+                    this.sliceAudio.play()
                     wereIngredientsHit = true
                 }
                 return !wasIngredientHit
