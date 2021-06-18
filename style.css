@@ -169,6 +169,7 @@ button:hover {
 
 #score-page {
     justify-content: center;
+    position: relative;
 }
 
 #footer-styles {
@@ -186,7 +187,7 @@ button:hover {
     transform: rotate(80deg);
     opacity: 0.7;
     right: 270px;
-    bottom: 0px;
+    bottom: 250px;
     width: 70px;
     height: 70px;
 }
@@ -194,7 +195,7 @@ button:hover {
 #splash5 {
     position: absolute;
     top: 220px;
-    left: 220px;
+    left: 300px;
     opacity: 0.6;
     transform: rotate(30deg);
     width: 90px;
@@ -205,7 +206,7 @@ button:hover {
     position: absolute;
     width: 333px;
     height: 212px;
-    right: 60px;
+    right: 50px;
     top: 60px;
 }
 
