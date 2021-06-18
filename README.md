@@ -18,16 +18,15 @@ done:
 - the game spawns all bruschetta ingredients (add onions and bread)
 - ingredients fly into the viewport from the bottom and fall back down
 - the score someone has reached is written on the scorepage (third page)
+- add game music, score page music, cutting sound effect
 
 could still be done:
 - after slicing, you can see two halves of the ingredient, which fall down
 - splashes from the vegetables after cutting
-- music, noise during cutting, game over noise
 - if the game has become complex and difficult enough: add three lives and if an ingredient falls to the ground, you lose a life, but if you cut the chicken, you immediately lose the game
 - increasing difficulty: more ingredients at the same time and faster
 
 ## Data structure
-Classes and methods definition. Or functions.
 
 ## main.js
 - window.addEventListener("load", () => {})
@@ -62,7 +61,6 @@ Classes and methods definition. Or functions.
 - wasHit()
 
 ## States and state transitions
-Definition of the different states and their transition (transition functions)
 
 - splashScreen
 - gameScreen
