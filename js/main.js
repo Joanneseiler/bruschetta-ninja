@@ -1,5 +1,5 @@
 let canvas, context;
-let startPage, gamePage, scorePage;
+let startPage, gamePage, scorePage, scoreMessage;
 let scoreAudio = new Audio("sounds/8-bit-rpg-music-the-heroines-theme-original-composition.mp3")
 scoreAudio.volume = 0.1
 
@@ -42,6 +42,18 @@ function switchToScoreSreen(score){
     hideAllScreens()
     scorePage.classList.remove("hidden")
     document.getElementById("score").innerText = score;
+
+    if (score < 100) {
+        scoreMessage = "Wow, you really suck at cooking, please never cook for me!"
+    }
+    else if (score < 300) {
+        scoreMessage = "Not bad, but I prefer to cook myself, I think you still need practice."
+    }
+    else {
+        scoreMessage = "Yummyyy, I bet that wasn't the first time you cooked!"
+    }
+
+    document.getElementById("score-message").innerText = scoreMessage;
     scoreAudio.play()
 }
 
