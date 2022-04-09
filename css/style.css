@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script&family=Tangerine&display=swap');
 
 .hidden {
     display: none!important;
@@ -8,6 +9,7 @@
 body {
     display: flex;
     justify-content: center;
+    margin: 0 5px 0 5px;
 }
 
 #start-page {
@@ -19,15 +21,13 @@ section {
     border-radius: 76px;
     font-family: 'Roboto', sans-serif;
     padding: 50px 200px;
-    color: white;
+    color: rgb(240 230 141);
     background-image: url("../images/vecteezy_a-wooden-cutting-board-isolated_2046969/ya4v_yf59_210113_ss4mp_generated.jpg");
     background-position: center;
     text-align: center;
     align-items: center;
-    max-width: 1000px;
+    max-width: 1050px;
     min-height: 800px;
-
-
 }
 
 .centered-flex {
@@ -38,11 +38,13 @@ section {
 
 h1 {
     text-align: center;
-    font-size: 42px;
-    color: #f0d18d;
+    color: #f0da8d;
     font-family: 'Cookie', cursive;
     font-size: 88px
 }
+
+
+/* IMAGES */
 
 #ninja {
     position: relative;
@@ -57,21 +59,11 @@ h1 {
     top: 36px;
     width: 80px;
     height: 80px;
-    right: 30px;
+    right: 40px;
     opacity: 0.6;
 }
 
 #splash2 {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    left: 200px;
-    bottom: -20px;
-    opacity: 0.6;
-    transform: rotate(40deg);
-}
-
-#splash3 {
     position: absolute;
     opacity: 0.5;
     left: 140px;
@@ -81,17 +73,17 @@ h1 {
     height: 100px;
 }
 
-#splash4 {
+#splash3 {
     position: absolute;
     opacity: 0.4;
     right: 320px;
     bottom: 100px;
 }
 
-#splash5 {
+#splash4 {
     position: absolute;
-    top: 220px;
-    left: 300px;
+    top: 120px;
+    left: 150px;
     opacity: 0.6;
     transform: rotate(30deg);
     width: 90px;
@@ -100,7 +92,7 @@ h1 {
 
 #spot {
     position: absolute;
-    left: 180px;
+    left: 80px;
     top: 160px;
     opacity: 0.7;
     width: 120px;
@@ -124,6 +116,24 @@ h1 {
     height: 70px;
 }
 
+
+#bruschetta {
+    position: absolute;
+    width: 300px;
+    height: 212px;
+    right: 50px;
+    top: 60px;
+    opacity: 0.8
+}
+
+#chicken {
+    position: absolute;
+    bottom: 60px;
+    left: 120px;
+}
+
+/* _________ */
+
 h2 {
     margin-top: 0;
     font-size: 24px;
@@ -145,7 +155,8 @@ p {
 }
 
 .half-transparent {
-    background-color: rgba(0,0,0,0.3);
+    /* background-color: rgb(221 164 194 / 30%); */
+    background-color: rgb(162 115 65 / 40%)
 }
 
 .rounded {
@@ -153,20 +164,21 @@ p {
 }
 
 button {
-    background-color: #ec618d;
-    border: 2px solid #f0d18d;
-    color: #f0d18d;
+    background-color: #e96895f7;
+    border: 2px solid #f0e98d;
+    color: #f0e98d;
     padding: 15px;
     margin: 40px 0 24px 0;
     border-radius: 10px;
     font-size: 24px;
 }
 
+
 button:hover {
     cursor: pointer;
-    background-color: #f0d18d;
-    color: #ec618d;
-    border: 2px solid #ec618d;
+    background-color: #f0e98d;
+    color: #e96895f7;
+    border: 2px solid #e96895f7;
 }
 
 #button {
@@ -178,7 +190,7 @@ button:hover {
 }
 
 #game-canvas {
-    cursor: url("../images/french-knife-rotate.png"), auto;
+    cursor: url("../images/knife.png"), auto;
 }
 
 
@@ -193,23 +205,15 @@ button:hover {
     padding: 20px 0 20px 0;
 }
 
-#bruschetta {
-    position: absolute;
-    width: 333px;
-    height: 212px;
-    right: 50px;
-    top: 60px;
-}
 
-#chicken {
-    position: absolute;
-    bottom: 60px;
-    left: 120px;
-}
+@media (max-width: 1073px) {
 
-
-
-@media (max-width: 1000px) {
+    body {
+        margin: 0px;
+    }
+    h1 {
+        font-size: 80px;
+        }
     section {
         padding: 0;
         border-radius: 48px;
@@ -235,7 +239,7 @@ button:hover {
 
 @media (max-width: 768px) {
     section {
-        border-radius: 32px;
+        border-radius: 0px;
     }
     .splash {
         display: none;
@@ -253,4 +257,13 @@ button:hover {
         margin: 24px;
         max-width: none;
     }
+    h1 {
+    font-size: 72px;
+    }
+}
+
+@media (max-width: 347px) {
+    h1 {
+        font-size: 56px;
+        }
 }
