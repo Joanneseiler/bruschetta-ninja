@@ -170,7 +170,8 @@ button {
     padding: 15px;
     margin: 40px 0 24px 0;
     border-radius: 10px;
-    font-size: 24px;
+    font-size: 36px;
+    font-family: 'Cookie', cursive;
 }
 
 
@@ -181,10 +182,6 @@ button:hover {
     border: 2px solid #e96895f7;
 }
 
-#button {
-    position: relative;
-}
-
 #game-page {
     position: relative;
 }
@@ -192,7 +189,6 @@ button:hover {
 #game-canvas {
     cursor: url("../images/knife.png"), auto;
 }
-
 
 #score-page {
     justify-content: center;
