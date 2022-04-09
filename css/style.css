@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
 
 .hidden {
     display: none!important;
@@ -16,12 +16,12 @@ body {
 
 section {
     width: 100%;
-    border-radius: 128px;
+    border-radius: 76px;
     font-family: 'Roboto', sans-serif;
     padding: 50px 200px;
     color: white;
     background-image: url("../images/vecteezy_a-wooden-cutting-board-isolated_2046969/ya4v_yf59_210113_ss4mp_generated.jpg");
-    background-size: cover;
+    background-position: center;
     text-align: center;
     align-items: center;
     max-width: 1000px;
@@ -39,14 +39,17 @@ section {
 h1 {
     text-align: center;
     font-size: 42px;
-    color: #0C0545;
+    color: #f0d18d;
+    font-family: 'Cookie', cursive;
+    font-size: 88px
 }
 
 #ninja {
-    position: absolute;
-    top: 5px;
-    width: 72px;
-    height: 72px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    width: 88px;
+    height: 88px;
 }
 
 #splash1 {
@@ -150,9 +153,9 @@ p {
 }
 
 button {
-    background-color: #BA4A52;
-    border: 2px solid white;
-    color: white;
+    background-color: #ec618d;
+    border: 2px solid #f0d18d;
+    color: #f0d18d;
     padding: 15px;
     margin: 40px 0 24px 0;
     border-radius: 10px;
@@ -161,8 +164,9 @@ button {
 
 button:hover {
     cursor: pointer;
-    color: #0C0545;
-    border: 2px solid #0C0545;
+    background-color: #f0d18d;
+    color: #ec618d;
+    border: 2px solid #ec618d;
 }
 
 #button {
@@ -208,6 +212,7 @@ button:hover {
 @media (max-width: 1000px) {
     section {
         padding: 0;
+        border-radius: 48px;
     }
 
     .small-container {
@@ -229,6 +234,9 @@ button:hover {
 
 
 @media (max-width: 768px) {
+    section {
+        border-radius: 32px;
+    }
     .splash {
         display: none;
     }
