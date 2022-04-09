@@ -122,32 +122,45 @@ class Game {
     }
     defineMouseMoveBehavior(){
         this.canvas.addEventListener("mousemove", (event) => {
-            this.slicePoints.push({x: event.offsetX, y: event.offsetY})
-            if (this.slicePoints.length > 4) {
-                this.slicePoints.shift()
-            }
+            event.preventDefault();
+            this.handleMovement({x: event.offsetX, y: event.offsetY})
+        })
+        this.canvas.addEventListener("touchmove", (event) => {
+            // This prevents the default scrolling behavior of dragging on touch screens
+            event.preventDefault();
+            let boundingClientRect = event.target.getBoundingClientRect();
+            this.handleMovement({
+                x: event.touches[0].clientX - boundingClientRect.x,  
+                y: event.touches[0].clientY - boundingClientRect.y,
+            })
+        })
+    }
+    handleMovement(position) {
+        this.slicePoints.push({x: position.x, y: position.y})
+        if (this.slicePoints.length > 4) {
+            this.slicePoints.shift()
+        }
+    
+        let wereIngredientsHit = false;
         
-            let wereIngredientsHit = false;
-            
-            this.ingredients = this.ingredients.filter((ingredient) => {
-                let wasIngredientHit = ingredient.wasHit(event.offsetX, event.offsetY)
-                if (wasIngredientHit) {
-                    this.score +=10
-                    this.sliceAudio.play()
-                    wereIngredientsHit = true
-                }
-                return !wasIngredientHit
-            })
-
-            if (wereIngredientsHit === true){
-                return
+        this.ingredients = this.ingredients.filter((ingredient) => {
+            let wasIngredientHit = ingredient.wasHit(position.x, position.y)
+            if (wasIngredientHit) {
+                this.score +=10
+                this.sliceAudio.play()
+                wereIngredientsHit = true
             }
+            return !wasIngredientHit
+        })
 
-            this.chickens.forEach((chicken) => {
-                if (chicken.wasHit(event.offsetX, event.offsetY)){
-                    this.gameOver = true;
-                }
-            })
+        if (wereIngredientsHit === true){
+            return
+        }
+
+        this.chickens.forEach((chicken) => {
+            if (chicken.wasHit(position.x, position.y)){
+                this.gameOver = true;
+            }
         })
     }
     drawSlice() {

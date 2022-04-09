@@ -9,7 +9,7 @@
 body {
     display: flex;
     justify-content: center;
-    margin: 24px
+    margin: 0;
 }
 
 #start-page {
@@ -20,14 +20,15 @@ section {
     width: 100%;
     border-radius: 76px;
     font-family: 'Roboto', sans-serif;
-    padding: 50px 200px;
+    padding: 0 200px;
     color: rgb(240 230 141);
     background-image: url("../images/vecteezy_a-wooden-cutting-board-isolated_2046969/ya4v_yf59_210113_ss4mp_generated.jpg");
     background-position: center;
+    background-size: cover;
     text-align: center;
     align-items: center;
     max-width: 1050px;
-    min-height: 800px;
+    height: 100vh;
 }
 
 .centered-flex {
@@ -42,6 +43,7 @@ h1 {
     font-family: 'Cookie', cursive;
     font-size: 88px;
     margin-top: 24px;
+    margin-bottom: 24px;
 }
 
 
@@ -153,6 +155,8 @@ p {
 .small-container {
     padding: 24px;
     max-width: 560px;
+    max-height: 400px;
+    overflow: scroll;
 }
 
 .half-transparent {
