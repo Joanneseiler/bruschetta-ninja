@@ -10,13 +10,13 @@
 <body>
     <!--Start Page-->
     <section id="start-page" class="centered-flex">
-        <div class="circle centered-flex">
-            <img src="./images/ninja.png">
+        <div class= "centered-flex">
+            <img id="ninja" src="./images/ninja.png">
             <h1>Bruschetta Ninja</h1>
         </div>
-        <div id="instructions" class="half-transparent rounded centered-flex small-container">
-            <img id="splash1" src="./images/splash.png">
-            <img id="spot" src="./images/spot.png">
+        <div class="half-transparent rounded centered-flex small-container">
+            <img id="splash1" class="splash" src="./images/splash.png">
+            <img id="spot" class="splash" src="./images/spot.png">
             <h2>Instructions:</h2>
             <h3>Let’s improve our cutting skills in the kitchen!</h3>
             <p>You will prepare some ingredients for bruschetta. 
@@ -31,33 +31,31 @@
             <p>At the end, the score will show how you master precise cutting techniques. Have fun!</p>
         </div>
         <div id="button">
-            <img id="splash2" src="./images/splash.png">
+            <img id="splash2" class="splash" src="./images/splash.png">
             <button id="start-button">Let's start</button>
         </div>
     </section>
 
     <!--Game Page-->
     <section id="game-page">
-        <img id="spot2" src="./images/spot.png">
-        <img id="splash3" src="./images/splash.png">
+        <img id="spot2" class="splash" src="./images/spot.png">
+        <img id="splash3" class="splash" src="./images/splash.png">
         <canvas id="game-canvas" class="half-transparent rounded" width="608" height="700"></canvas>
-        <img id="splash4" src="./images/splash.png">
+        <img id="splash4" class="splash" src="./images/splash.png">
     </section>
 
     <!--Score Page-->
     <section class="centered-flex" id="score-page">
         <img id="bruschetta" src="./images/bruschet_kleinwiehulle.png">
-        <img id="spot3" src="./images/spot.png">
-        <img id="splash5" src="./images/splash.png">
+        <img id="spot3" class="splash" src="./images/spot.png">
+        <img id="splash5" class="splash" src="./images/splash.png">
         <div class="half-transparent rounded centered-flex small-container">
             <p id="score-message">I bet that wasn't the first time you cooked!</p>
             <p>Your score is <span id="score"></span>.</p>
             <p>Play again to become a real pro in the kitchen:</p>
         </div>
         <button id="restart-button">Restart</button>
-        <div id="footer-styles">
-            <img id="chicken" src="./images/chicken1-score-page.png">
-        </div>
+        <img id="chicken" src="./images/chicken1-score-page.png">
     </section>
 
     <!-- js files -->
