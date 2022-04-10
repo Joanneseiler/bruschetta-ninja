@@ -59,10 +59,10 @@ h1 {
 
 #splash1 {
     position: absolute;
-    top: 280px;
+    top: 200px;
     width: 80px;
-    height: 80px;
-    right: 250px;
+    height: 79px;
+    right: 170px;
     opacity: 0.6;
 }
 
@@ -85,7 +85,7 @@ h1 {
 
 #splash4 {
     position: absolute;
-    top: 120px;
+    top: 80px;
     left: 150px;
     opacity: 0.6;
     transform: rotate(30deg);
@@ -114,7 +114,7 @@ h1 {
     transform: rotate(80deg);
     opacity: 0.7;
     right: 270px;
-    bottom: 250px;
+    bottom: 220px;
     width: 70px;
     height: 70px;
 }
@@ -122,17 +122,18 @@ h1 {
 
 #bruschetta {
     position: absolute;
-    width: 300px;
-    height: 212px;
-    right: 50px;
-    top: 60px;
-    opacity: 0.8
+    width: 240px;
+    height: 150px;
+    right: 170px;
+    top: 10px;
+    opacity: 0.9;
 }
 
 #chicken {
     position: absolute;
-    bottom: 60px;
-    left: 120px;
+    bottom: 15px;
+    left: 150px;
+    width: 250px;
 }
 
 /* _________ */
@@ -222,8 +223,8 @@ button:hover {
     }
 
     #chicken {
-        max-height: 200px;
-        bottom: 40px;
+        max-width: 200px;
+        bottom: 15px;
         left: 120px;
     }
 
