@@ -21,7 +21,7 @@ function initializeCanvas() {
     canvas = document.getElementById("game-canvas");
     let screenWidth = document.body.getBoundingClientRect().width;
     let maxWidth = canvas.getAttribute('width');
-    canvas.setAttribute('width', Math.min(screenWidth, maxWidth));
+    canvas.setAttribute('width', Math.min(screenWidth, maxWidth)); // Math.min() returns the lowest-valued number passed into it
     context = canvas.getContext("2d");
 }
 
@@ -40,7 +40,8 @@ function switchToGameScreen(){
     hideAllScreens()
     gamePage.classList.remove("hidden")
     let screenHeight = window.innerHeight;
-    canvas.setAttribute('height', Math.max(screenHeight, canvas.getAttribute('height')));
+    //canvas.setAttribute('height', Math.max(screenHeight, canvas.getAttribute('height')));
+    canvas.setAttribute('height', screenHeight)
 }
 
 function switchToScoreSreen(score){

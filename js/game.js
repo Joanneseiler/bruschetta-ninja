@@ -31,7 +31,7 @@ class Game {
             this.slicePoints.shift()
         }, 50))
 
-        this.defineMouseMoveBehavior()
+        this.defineMoveBehavior()
         this.updateGame()
     }
     spawnIngredient(){
@@ -120,7 +120,7 @@ class Game {
         context.textBaseline = "top"
         context.fillText(`Score: ${this.score}`, 24, 24)
     }
-    defineMouseMoveBehavior(){
+    defineMoveBehavior(){
         this.canvas.addEventListener("mousemove", (event) => {
             event.preventDefault();
             this.handleMovement({x: event.offsetX, y: event.offsetY})
@@ -128,9 +128,11 @@ class Game {
         this.canvas.addEventListener("touchmove", (event) => {
             // This prevents the default scrolling behavior of dragging on touch screens
             event.preventDefault();
+            // getBoundingClientRect() dynamically measures the size of the canvas (event.target in this case is the canvas)
             let boundingClientRect = event.target.getBoundingClientRect();
             this.handleMovement({
-                x: event.touches[0].clientX - boundingClientRect.x,  
+                x: event.touches[0].clientX - boundingClientRect.x,
+                // Calculate the position relative to the canvas position by subtracting the canvas position from the absolute of the finger 
                 y: event.touches[0].clientY - boundingClientRect.y,
             })
         })
