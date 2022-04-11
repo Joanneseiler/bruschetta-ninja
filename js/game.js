@@ -3,6 +3,7 @@ class Game {
         this.score = 0;
         this.ingredients = [];
         this.chickens = [];
+        this.remainders = [];
         this.gameOver = false;
         this.canvas = canvas;
         this.context = context;
@@ -72,7 +73,7 @@ class Game {
     }
     spawnChicken(){
         let chickenImage = new Image();
-        chickenImage.src = "./images/chicken.png"
+        chickenImage.src = "../images/chicken.png"
         
         let chicken = new Chicken(
             chickenImage,
@@ -86,10 +87,12 @@ class Game {
     updateGame(){
         context.clearRect(0, 0, canvas.width, canvas.height)
 
+        this.drawRemainders()
         this.updateChickens()
         this.updateIngredients()
         this.updateScore()
         this.drawSlice()
+        
 
         if (this.gameOver === true) {
             this.endGame()
@@ -112,6 +115,11 @@ class Game {
             if (ingredient.y > this.canvas.height + ingredient.size) {
                 this.gameOver = true;
             }
+        })
+    }
+    drawRemainders(){
+        this.remainders.forEach((remainder)=> {
+            this.context.drawImage(remainder.image, remainder.x, remainder.y, remainder.size, remainder.size)
         })
     }
     updateScore() {
@@ -151,6 +159,12 @@ class Game {
                 this.score +=10
                 this.sliceAudio.play()
                 wereIngredientsHit = true
+
+                let remainderImage = new Image();
+                remainderImage.src = "../images/splash.png"
+
+                let remainder = new Remainder(remainderImage, ingredient.x, ingredient.y, ingredient.size)
+                this.remainders.push(remainder)
             }
             return !wasIngredientHit
         })
