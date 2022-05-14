@@ -43,9 +43,9 @@ class Game {
     }
     getRandomIngredient() {
         let possibleIngredients = [
-            {image: "/images/tomato.png", size: 64},
-            {image: "/images/onion.png", size: 64},
-            {image: "/images/bread.png", size: 80},
+            {image: "images/tomato.png", size: 64},
+            {image: "images/onion.png", size: 64},
+            {image: "images/bread.png", size: 80},
         ]
 
         let randomIndex = Math.floor(Math.random() * possibleIngredients.length)
@@ -73,7 +73,7 @@ class Game {
     }
     spawnChicken(){
         let chickenImage = new Image();
-        chickenImage.src = "/images/chicken.png"
+        chickenImage.src = "images/chicken.png"
         
         let chicken = new Chicken(
             chickenImage,
@@ -161,7 +161,7 @@ class Game {
                 wereIngredientsHit = true
 
                 let remainderImage = new Image();
-                remainderImage.src = "/images/splash.png"
+                remainderImage.src = "images/splash.png"
 
                 let remainder = new Remainder(remainderImage, ingredient.x, ingredient.y, ingredient.size)
                 this.remainders.push(remainder)
